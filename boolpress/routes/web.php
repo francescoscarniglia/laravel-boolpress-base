@@ -11,6 +11,10 @@
 |
 */
 
+// /
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
+// users
+Route::resource('users', 'UserController');
