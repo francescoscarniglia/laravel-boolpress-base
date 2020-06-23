@@ -21,7 +21,9 @@ class CreatePostsTable extends Migration
             $table->timestamps();
 
             // relation
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
         });
     }
 

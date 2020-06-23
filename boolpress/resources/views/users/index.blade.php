@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section ('main-content')
-    <h2>Blog archive</h2>
+    <h2>Users</h2>
 
     <!-- @dump($users) -->
     @foreach ($users as $user)
@@ -13,11 +13,19 @@
             <div>{{ $user->info['phone'] }}</div>
             {{-- @dump($user->info) --}}
             {{-- @dump($user->info()) --}}
+            <h3>Posts</h3>
+            <ul>
+                @foreach ($user->posts as $post)
+                <li>
+                <h4> {{ $post->title }} </h4>
+                <p>  {{ $post->body }} </p>
+                </li>
+            @endforeach
+            </ul>
         </div>
         @if (! $loop->last)
             <hr>
         @endif
-
     @endforeach
 
 @endsection

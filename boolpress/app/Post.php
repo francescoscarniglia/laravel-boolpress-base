@@ -18,7 +18,7 @@ class Post extends Model
     // user (many to 1)
     public function user()
     {
-        return->$this->belongsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 
 }
