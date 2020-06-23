@@ -21,3 +21,7 @@ Route::resource('users', 'UserController');
 
 // posts
 Route::resource('posts', 'PostController');
+
+// shop
+Route::resource('products', 'ProductController');
+

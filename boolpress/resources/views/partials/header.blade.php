@@ -14,6 +14,7 @@
                 <li> <a href="{{ route('home')}}">Home</a> </li>
                 <li> <a href="{{ route('users.index') }}">Users</a> </li>
                 <li> <a href="{{ route('posts.index') }}">Posts</a> </li>
+                <li> <a href="{{ route('products.index') }}">Shop</a> </li>
             </ul>
         </nav>
     </header>
