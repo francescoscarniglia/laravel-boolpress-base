@@ -13,6 +13,7 @@
             {{ $item->description }}
         </p>
 
+        <a class="button" href="{{ route('products.show', $item->id ) }}">Show</a>
 
 
     </div> {{-- products --}}
