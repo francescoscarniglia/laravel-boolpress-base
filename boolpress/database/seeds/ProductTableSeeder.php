@@ -18,11 +18,12 @@ class ProductTableSeeder extends Seeder
 
             // new instance
             $newProduct = new Product();
-            $newProduct->$faker->name;
-            $newProduct->$faker->randomNumber(2);
-            $newProduct->$faker->text;
-            $newProduct->$faker->text($maxNbChars = 200)
+            $newProduct->name= $faker->text(10);
+            $newProduct->price= $faker->randomFloat( 2 , 1 , 999 );
+            $newProduct->description= $faker->paragraphs(5, true);
 
+
+            $newProduct->save();
         }
     }
 }
