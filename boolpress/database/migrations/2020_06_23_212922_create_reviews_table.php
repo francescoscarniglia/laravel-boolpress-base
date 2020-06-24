@@ -14,10 +14,11 @@ class CreateReviewsTable extends Migration
     public function up()
     {
         Schema::create('reviews', function (Blueprint $table) {
-            //$table->id();
+         //   $table->id();
             $table->unsignedBigInteger('product_id');
             $table->string('title');
             $table->text('body');
+            $table->string('slug');
             $table->timestamps();
 
             // relations

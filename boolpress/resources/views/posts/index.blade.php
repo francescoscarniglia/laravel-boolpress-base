@@ -17,6 +17,7 @@
             <p>
                 Description: {{ $item->body}}
             </p>
+        {{-- <a href=" {{ route('posts.show', $post->slug )}}"> Read more...</a> --}}
         </article>
         @if(!$loop->last)
             <hr>

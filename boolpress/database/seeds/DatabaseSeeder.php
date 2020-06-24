@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
             UserTableSeeder::class,
             InfoUserTableSeeder::class,
             PostTableSeeder::class,
-            ProductTableSeeder::class
+            ProductTableSeeder::class,
+            TagTableSeeder::class
             ]);
     }
 }
