@@ -22,10 +22,11 @@ class PostTableSeeder extends Seeder
             $title = $faker->text(50);
 
             $newPost = new Post();
+
             $newPost->user_id = $users->random()->id;
             $newPost->title = $title;
             $newPost->body = $faker->text(300);
-            // $newPost->slug = Str::slug($title, '-');
+            $newPost->slug = Str::slug($title, '-');
             $newPost->save();
         }
     }

@@ -8,6 +8,7 @@ class Post extends Model
 {
     //mass assign
     protected $fillable = [
+
         'user_id',
         'title',
         'body',

@@ -13,10 +13,10 @@ class UserTableSeeder extends Seeder
      * @return void
      */
     public function run(Faker $faker)
-    {   
+    {
         // psw
         $users = 3;
-        for ( $i=0; $i < $users; $i++) { 
+        for ( $i=0; $i < $users; $i++) {
             $newUser = new User();
 
             $newUser->name = $faker->name();
