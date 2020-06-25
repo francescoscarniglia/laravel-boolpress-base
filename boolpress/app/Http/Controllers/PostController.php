@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Tag;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -44,8 +45,28 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
-            'tags.*' => 'exist:tags,id'
+            'tags.*' => 'exists:tags,id'
         ]);
+
+        $data = $request->all();
+        // get user id
+        $data['user_id'] = 1;
+
+        // generate post slug
+        $data['slug'] = Str::slug($data['title'], '-');
+
+        // new post
+        $newPost = new Post();
+        $newPost->fill($data);
+        $saved = $newPost->save();
+
+        if($saved) {
+            if (!empty($data['tags'])) {
+                $newPost->tags()->attach($data['tags']);
+            }
+
+            return redirect()->route('posts.show', $newPost->slug);
+        }
     }
 
     /**
