@@ -2,12 +2,13 @@
 @section ('main-content')
     <h2>Blog archive</h2>
     @foreach ($posts as $item)
+
         <article>
             <h2>
                 {{ $item->title}}
             </h2>
 
-            <h3 class="author">
+            <h3 class=" author">
                     Author:  {{ $item->user->name }}
             </h3>
 
@@ -17,7 +18,7 @@
             <p>
                 Description: {{ $item->body}}
             </p>
-        <a href=" {{ route('posts.show', $item->slug )}}"> Read more...</a>
+        <a  class="btn btn-info" href=" {{ route('posts.show', $item->slug )}}"> Read more...</a>
         </article>
 
         @if(!$loop->last)

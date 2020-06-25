@@ -1,5 +1,22 @@
 @include('partials.header')
 
-@yield('main-content')
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
 
-@include('partials.footer')
+            @yield('main-content')
+        </div> <!-- co-sm-8 -->
+    </div> <!-- row -->
+</div> <!-- container -->
+
+<div class="container-fluid p-8 bg-info">
+    <div class="row">
+        <div class="col-sm-12">
+            @include('partials.footer')
+        </div>
+</div>
+
+</div>
+
+
+

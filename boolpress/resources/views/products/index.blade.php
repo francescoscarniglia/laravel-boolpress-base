@@ -5,7 +5,7 @@
 
     {{-- @dump($products) --}}
     @foreach ($products as $item)
-    <div class="products">
+    <div class="products mt-4 mb-4">
 
         <h2>{{ $item->name }}</h2>
         <h4>{{ $item->price }}</h4>
@@ -13,10 +13,14 @@
             {{ $item->description }}
         </p>
 
-        <a class="button" href="{{ route('products.show', $item->id ) }}">Show</a>
+        <a class="btn btn-info" href="{{ route('products.show', $item->id ) }}">Show</a>
 
+    @if(!$loop->last)
+        <hr>
+    @endif
 
     </div> {{-- products --}}
+
     @endforeach
 
 
