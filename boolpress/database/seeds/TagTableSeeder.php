@@ -14,8 +14,9 @@ class TagTableSeeder extends Seeder
     {
         // blog tags
        $tags= [
-        'Educazional',
+        'Educational',
         'Html',
+        'Scss',
         'Lavarel'
        ];
 
