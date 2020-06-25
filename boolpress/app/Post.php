@@ -23,7 +23,7 @@ class Post extends Model
         return $this->belongsTo('App\User');
     }
 
-    // tags
+    // tags (many to many)
 
     public function tags() {
         return $this->belongsToMany('App\Tag');

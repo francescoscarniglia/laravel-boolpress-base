@@ -20,7 +20,7 @@
             <li class="nav-item"> <a  class="nav-link" href="{{ route('home')}}">Home</a> </li>
             <li class="nav-item"> <a class="nav-link" href="{{ route('users.index') }}">Users</a> </li>
             <li class="nav-item"> <a class="nav-link" href="{{ route('posts.index') }}">Archive</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('posts.create') }}">Create post</a> </li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('posts.create') }}">Create new post</a> </li>
             <li class="nav-item">  <a class="nav-link" href="{{ route('products.index') }}">Shop</a> </li>
           </ul>
         </div>
