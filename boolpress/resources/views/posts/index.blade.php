@@ -1,5 +1,13 @@
 @extends('layouts.main')
 @section ('main-content')
+
+    @if (session('post-deleted'))
+        <div class="alert alert-success">
+            <p>Deleted successfully:</p>
+            {{ session('post-deleted') }}
+        </div>
+    @endif
+
     <h2>Blog archive</h2>
     @foreach ($posts as $item)
 

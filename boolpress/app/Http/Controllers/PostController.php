@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         //$posts = Post::all();
-        $posts = Post::simplepaginate(4);
+        $posts = Post::orderBy('created_at', 'desc')->paginate(4);
         return view('posts.index', compact('posts'));
     }
 
@@ -91,9 +91,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        $tags = Tag::all();
+        return view('posts.edit', compact('post', 'tags'));
     }
 
     /**
@@ -103,9 +104,28 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        //validate
+        $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+            'tags.*' => 'exists:tags,id'
+        ]);
+
+        $data = $request->all();
+
+        $updated = $post->update($data);
+
+        if($updated) {
+            if(!empty($data['tags'])) {
+                $post->tags()->sync($data['tags']);
+            } else {
+                $post->tags()->detach();
+            }
+
+            return redirect()->route('posts.show', $post->slug);
+        }
     }
 
     /**
@@ -114,8 +134,20 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        if(empty($post)) {
+            abort('404');
+        }
+
+        // ref
+        $title = $post->title;
+
+        // remove
+        $post->tags()->detach();
+        $deleted = $post->delete();
+        if($deleted) {
+            return redirect()->route('posts.index')->with('post-deleted', $title);
+        }
     }
 }
